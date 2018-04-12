@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <title>Simple Fibonacci Demo</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, Sans-Serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        #mainList {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .fib {
+            opacity: 0;
+            color: white;
+            font-weight: bold;
+            margin-left: 2px;
+            margin-top: 2px;
+            border-radius: 5px;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-align: center;
+            line-height: 26px;
+        }
+
+        .fib.visible {
+            opacity: 1;
+            transition: opacity .5s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Fibonacci Demo</h1>
+    </header>
+    <label for="limit">Fibonacci Index</label>
+    <input id="limit" type="text" value="10" />
+    <button id="submitLimit" type="button">Start</button>
+    <ul id="mainList">
+    </ul>
+    <script>
+        const Colors = ["#7f8c8d", "#bdc3c7", "#c0392b", "#d35400", "#f39c12", "#95a5a6", "#ecf0f1", "#e74c3c", "#e67e22", "#f1c40f", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#2c3e50", "#34495e", "#9b59b6", "#3498db", "#2ecc71", "#1abc9c"];
+
+        get = (url) =>
+            new Promise(function (resolve, reject) {
+                const req = new XMLHttpRequest();
+                req.open('GET', url);
+
+                req.onload = () => {
+                    +req.status === 200 ?
+                        resolve(req.response) :
+                        reject(Error(req.statusText));
+                };
+
+                req.onerror = () => {
+                    reject(Error("Network Error"));
+                };
+
+                req.send();
+            });
+
+        const createAndAppendFibNode = (value) => {
+            const mainNode = document.querySelector("#mainList");
+            const newNode = document.createElement("li");
+            const randomColor = Colors[Math.floor(Math.random() * Colors.length)];
+            newNode.className = "fib";
+            newNode.textContent = value;
+            newNode.style = `background-color: ${randomColor}`;
+            mainNode.appendChild(newNode);
+            setTimeout(() => newNode.classList.add("visible"), 50);
+        };
+
+        const calcFib = (index) => {
+            let a = 1;
+            let b = 0;
+            let temp;
+
+            while (index >= 0) {
+                temp = a;
+                a = a + b;
+                b = temp;
+                index--;
+            }
+
+            return b;
+        }
+
+        const main = (fibIndex) => {
+            get(`/fibonacci.php?number=${fibIndex}`).then(result => {
+                let index = 0;
+                result = JSON.parse(result);
+                const intervalRef = setInterval(() => {
+                    createAndAppendFibNode(result[index]);
+                    index++;
+                    if (index >= result.length) {
+                        clearInterval(intervalRef);
+                    }
+                }, 1000);
+            });
+        }
+
+        (() => {
+            const button = document.querySelector("#submitLimit");
+            button.addEventListener("click", () => {
+                const fibIndex = document.querySelector("#limit").value;
+                main(fibIndex);
+            });
+        })();
+    </script>
+</body>
+
+</html>
