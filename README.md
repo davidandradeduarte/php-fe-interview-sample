@@ -1,15 +1,9 @@
-Vagrant LAMP
+Mindera @ PHP & FE interview
 ============
 
-Want to test a new web app but don't want to affect your current Apache / MySQL / PHP system?
-Applications like MAMP are great, but they don't make it easy to maintain multiple, separate
-web roots.
+This project aims to make it very easy to do a simple interview regarding PHP and FE skills.
 
-If you find yourself needing quick to configure web stack, but also one that is customizable try this Vagrant project
-
-Vagrant allows for Virtual Machines to be quickly setup, and easy to use.
-
-And this project aims to make it very easy to spinup a complete LAMP stack in a matter of minutes.
+The solution is provided under the `solution` folder.
 
 Requirements
 ------------
@@ -17,21 +11,12 @@ Requirements
 * Vagrant <http://www.vagrantup.com>
 * Git <http://git-scm.com/>
 
-Usage
------
-
 ### Startup
 
-1. Download one of the releases available [https://github.com/mattandersen/vagrant-lamp/releases](https://github.com/mattandersen/vagrant-lamp/releases)
-2. Extract the ZIP file.
-3. From the command-line:
 ```
-$ cd vagrant-lamp-release
 $ vagrant up
 ```
 That is pretty simple.
-
-### Connecting
 
 #### Apache
 The Apache server is available at <http://localhost:8888>
