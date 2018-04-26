@@ -46,3 +46,7 @@ And like any other vagrant file you have SSH access with
 ```
 $ vagrant ssh
 ```
+
+#### Demo
+
+![Alt Text](https://media.giphy.com/media/1rNZm2yBSSAFpisPak/giphy.gif)
