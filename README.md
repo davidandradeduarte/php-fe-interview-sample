@@ -49,4 +49,4 @@ $ vagrant ssh
 
 #### Demo
 
-![Alt Text](https://media.giphy.com/media/1rNZm2yBSSAFpisPak/giphy.gif)
+![Alt Text](https://media.giphy.com/media/3JQCinVQJ1s4iB7ilv/giphy.gif)
