@@ -1,4 +1,4 @@
-Mindera @ PHP & FE interview
+PHP & FE interview
 ============
 
 This project aims to make it very easy to do a simple interview regarding PHP and FE skills.
