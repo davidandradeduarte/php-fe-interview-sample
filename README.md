@@ -1,9 +1,7 @@
-PHP & FE interview
+Sample PHP/JavaScript interview
 ============
 
-This project aims to make it very easy to do a simple interview regarding PHP and FE skills.
-
-The solution is provided under the `solution` folder.
+The solution is provided under the [solution](solution) folder.
 
 Requirements
 ------------
@@ -16,13 +14,12 @@ Requirements
 ```
 $ vagrant up
 ```
-That is pretty simple.
 
 #### Apache
 The Apache server is available at <http://localhost:8888>
 
 #### MySQL
-Externally the MySQL server is available at port 8889, and when running on the VM it is available as a socket or at port 3306 as usual.
+MySQL is available in the host port 8889, and when running on the VM it is available as a socket or at port 3306 as usual.
 Username: root
 Password: root
 
@@ -35,10 +32,6 @@ Technical Details
 * XDebug
 * PHPUnit 4.8
 * Composer
-
-We are using the base Ubuntu 14.04 box from Vagrant. If you don't already have it downloaded
-the Vagrantfile has been configured to do it for you. This only has to be done once
-for each account on your host computer.
 
 The web root is located in the project directory at `src/` and you can install your files there
 
